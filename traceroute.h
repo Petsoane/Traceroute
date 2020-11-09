@@ -18,5 +18,17 @@
 
 #include "libft/libft.h"
 
+typedef struct s_tms {
+    char *ping_dest;
+    char *fqdn;
+    char ipstr[INET6_ADDRSTRLEN];
+    struct addrinfo *info;
+
+}           t_destination;
+
+typedef struct s_flags {
+    int h;
+}       t_flags;
+
 
 #endif

@@ -10,7 +10,6 @@ Traceroute sends ICMP packets to to a destination. It sets the ttl value of each
 untill it reaches a destination.
 Although other versions of the traceroute command use a series of UPD packets to get to the same result.
 
-
 # What is a TTL value
 TTL value, also called hop limit, is the number of routers the packet is permited to go through before reaching
 its destination.
