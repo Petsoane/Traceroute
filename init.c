@@ -14,7 +14,6 @@ char* reverse_dns_lookup(char *ip_addr)
     if (getnameinfo((struct sockaddr *) &temp_addr, len, buf,  
                     sizeof(buf), NULL, 0, NI_NAMEREQD))  
     { 
-        printf("Could not resolve reverse lookup of hostname\n"); 
         return NULL; 
     } 
     ret_buf = (char*)malloc((strlen(buf) +1)*sizeof(char) ); 
@@ -22,7 +21,8 @@ char* reverse_dns_lookup(char *ip_addr)
     return ret_buf; 
 } 
 
-int init(int argc, char **argv, t_flags *flags, t_destination *dest)
+int init(int argc, char **argv, t_flags
+ *flags, t_destination *dest)
 {
     int i = 1;
     char *tmp;
@@ -65,6 +65,8 @@ int init(int argc, char **argv, t_flags *flags, t_destination *dest)
     struct sockaddr_in *ipv4 = (struct sockaddr_in *)dest->info->ai_addr;
     void *addr = &(ipv4->sin_addr);
     inet_ntop(dest->info->ai_family, addr, dest->ipstr, sizeof(dest->ipstr));
+    inet_ntop(dest->info->ai_family, addr, dest->dest_str, sizeof(dest->ipstr));
+
 
     dest->fqdn = reverse_dns_lookup(dest->ipstr);
     return 0;

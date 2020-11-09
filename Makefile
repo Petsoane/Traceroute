@@ -1,11 +1,11 @@
 FLAG = -Wall -Wextra -Werror
 
-NAME = ft_ping
+NAME = ft_traceroute
 
 all: $(NAME)
 
 $(NAME):
-	gcc *.c  libft/libft.a -o $(NAME)
+	gcc *.c utils/* libft/libft.a -o $(NAME)
 
 clean:
 	@rm -f $(OBJ)
