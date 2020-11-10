@@ -56,6 +56,14 @@ int init(int argc, char **argv, t_flags
         return (-1);
     }
 
+    if (flags->h == 1 && out == NULL){
+        return 0;
+    }
+    else if (out == NULL){
+        usage(argv[0]);
+        return -1;
+    }
+
     dest->ping_dest = ft_strdup(out);
     free(out);
 

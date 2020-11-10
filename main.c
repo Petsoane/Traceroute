@@ -10,7 +10,7 @@ int main(int argc, char **argv)
     int sstatus;
 
     if (argc < 2){
-        help();
+        usage(argv[0]);
         return (-1);
     }
 
