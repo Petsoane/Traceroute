@@ -37,7 +37,6 @@ int main(int argc, char **argv)
 	time_out.tv_usec = 0;
 
 	sstatus = setsockopt(sockfd, SOL_SOCKET, SO_RCVTIMEO, (const char *)&time_out, sizeof time_out);
-    printf("%d\n", sstatus);
 	if (sstatus != 0){
 		fprintf(stderr, "Error setting timeout value: %s", gai_strerror(sstatus));
 		return (1);
@@ -47,6 +46,9 @@ int main(int argc, char **argv)
 
     int hop_limit = 30;
     int hop = 1;
+
+    printf("Traceroute to %s (%s) , 30 hops max, 64 byte packets\n",
+                destination.dest_str, destination.ipstr);
     while (hop < hop_limit){
         if (set_ttl(sockfd, hop) != 0) return -1;
 
